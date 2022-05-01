@@ -16,6 +16,7 @@ def home(request):
     }
     return render(request, 'pages/home.html', context)
 
+# book details
 def bookDetails(request, pk):
     book_detail = BookCardsModel.objects.get(id=pk)
     context = {
@@ -23,3 +24,11 @@ def bookDetails(request, pk):
     }
     
     return render(request, 'details/book_details.html', context)
+
+# shop details
+def shopDetails(request, pk):
+    shop_detail = BookCardsModel.objects.get(id=pk)
+    context = {
+        'shop_detail': shop_detail
+    }
+    return render(request, 'details/shop_details.html', context)
