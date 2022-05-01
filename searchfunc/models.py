@@ -10,6 +10,7 @@ class BookCardsModel(models.Model):
     book_name = models.CharField(max_length=100)
     book_subtitle = models.CharField(max_length=100)
     book_description = models.TextField(max_length=300)
+    full_description = models.TextField(max_length=700)
     
     def __str__(self):
         return str(self.book_name)
