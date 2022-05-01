@@ -1,6 +1,12 @@
 <nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">AnitaBooks</a>
+  <div class="container">
+    <a href="{% url 'book:home' %}" class="navbar-brand">AnitaBooks</a>
+    <div class="d-flex justify-content-center ml-5">
+      <a href="{% url 'book:home' %}" class="mr-4">Home</a>
+      <a href="/admin/" class="mr-4">Admin</a>
+      <a href="#" class="mr-4">Dashboard</a>
+      <a href="#" class="mr-4">About us</a>
+    </div>
     <form class="d-flex input-group w-auto">
       <input
         type="search"
