@@ -1,9 +1,9 @@
-from multiprocessing import context
 from django.shortcuts import render
 from .models import *
 from django.db.models import Q
 
 def home(request):
+    
     if 's' in request.GET:
         search_key = request.GET['s']
         full_search = Q(Q(book_name__icontains=search_key) | Q(book_subtitle__icontains=search_key))
@@ -11,10 +11,30 @@ def home(request):
     else:
         book_cards = BookCardsModel.objects.all()
         
+        
+    
     context = {
-        "book_cards": book_cards
+        "book_cards": book_cards,
     }
     return render(request, 'pages/home.html', context)
+
+
+def books(request):
+    category = request.GET.get('category')
+    
+    if category == None:
+        book_cards = BookCardsModel.objects.all()
+    else:
+        book_cards = BookCardsModel.objects.filter(category__name=category)
+        
+    categories = BookCategoryModel.objects.all()
+
+    context = {
+        "book_cards": book_cards,
+        "categories": categories
+    }
+    
+    return render(request, 'pages/books.html', context)
 
 # book details
 def bookDetails(request, pk):

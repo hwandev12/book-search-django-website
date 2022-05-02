@@ -26,7 +26,7 @@
   <!-- dropdown button -->
   <div class="btn dropend">
     <button
-      style="transform: translate(30px, 55px); padding: 10px 30px;"
+      style="transform: translate(30px, 55px); padding: 10px 30px; border-radius: 50px;"
       type="button"
       class="btn btn-secondary"
       data-bs-toggle="dropdown"
@@ -36,9 +36,22 @@
       <i class="fa-solid fa-bars ml-3"></i>
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Menu item</a></li>
-      <li><a class="dropdown-item" href="#">Menu item</a></li>
-      <li><a class="dropdown-item" href="#">Menu item</a></li>
+      {% for category in categories %}
+      <li>
+        <a
+          class="dropdown-item"
+          href="{% url 'book:books' %}?category={{ category.name }}"
+          >{{ category.name }}</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item"
+          href="{% url 'book:books' %}"
+          >All</a
+        >
+      </li>
+      {% endfor %}
     </ul>
   </div>
 </nav>

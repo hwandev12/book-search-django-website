@@ -6,5 +6,6 @@ app_name = 'book'
 urlpatterns = [
     path('', home, name='home'),
     path('<int:pk>/details', bookDetails, name='details'),
+    path('books/', books, name='books'),
     path('<int:pk>/shop-item', shopDetails, name='shop_details')
 ]
