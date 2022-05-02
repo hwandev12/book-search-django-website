@@ -52,3 +52,13 @@ def shopDetails(request, pk):
         'shop_detail': shop_detail
     }
     return render(request, 'details/shop_details.html', context)
+
+# card checkout to buy the book
+def checkoutBookView(request, pk):
+    checkout = BookCardsModel.objects.get(id=pk)
+
+    context = {
+        'checkout': checkout
+    }
+    
+    return render(request, 'pages/checkout.html')
