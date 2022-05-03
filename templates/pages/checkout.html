@@ -114,17 +114,17 @@
       </div>
 
       <div class="mt-4 mb-4 d-flex justify-content-between">
-        <span>Previous step</span>
+        <a href="{% url 'book:shop_details' checkout.pk %}">Back</a>
 
-        <button class="btn btn-success px-3">Pay $840</button>
+        <button class="btn btn-success px-3">Pay ${{ checkout.shop_cost }}</button>
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4" style="transform: translateY(100px);">
       <div class="card card-blue p-3 text-white mb-3">
         <span>You have to pay</span>
         <div class="d-flex flex-row align-items-end mb-3">
-          <h1 class="mb-0 yellow">$549</h1>
+          <h1 class="mb-0 yellow">${{ checkout.shop_cost }}</h1>
           <span>.99</span>
         </div>
 

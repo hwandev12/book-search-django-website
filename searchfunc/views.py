@@ -61,4 +61,4 @@ def checkoutBookView(request, pk):
         'checkout': checkout
     }
     
-    return render(request, 'pages/checkout.html')
+    return render(request, 'pages/checkout.html', context)
