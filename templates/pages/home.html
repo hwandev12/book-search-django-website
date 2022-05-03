@@ -1,31 +1,54 @@
 {% extends 'layouts/base.html' %} {% load static %} {% block content %}
 
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-col text-center w-full mb-20">
-      <h2
-        class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1"
-      >
-        ROOF PARTY POLAROID
-      </h2>
-      <h1
-        class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
-      >
-        Master Cleanse Reliac Heirloom
-      </h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-        Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-        gentrify, subway tile poke farm-to-table. Franzen you probably haven't
-        heard of them man bun deep jianbing selfies heirloom prism food truck
-        ugh squid celiac humblebrag.
-      </p>
+<main>
+  <div id="carousel">
+    <div class="hideLeft">
+      <img
+        src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg"
+      />
     </div>
-    <button
-      class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-    >
-      Button
-    </button>
+
+    <div class="prevLeftSecond">
+      <img
+        src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg"
+      />
+    </div>
+
+    <div class="prev">
+      <img
+        src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg"
+      />
+    </div>
+
+    <div class="selected">
+      <img
+        src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg"
+      />
+    </div>
+
+    <div class="next">
+      <img
+        src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg"
+      />
+    </div>
+
+    <div class="nextRightSecond">
+      <img
+        src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg"
+      />
+    </div>
+
+    <div class="hideRight">
+      <img
+        src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg"
+      />
+    </div>
   </div>
-</section>
+
+  <div class="buttons">
+    <button id="prev" class="btn btn-outline-primary">Prev</button>
+    <button id="next" class="btn btn-outline-primary">Next</button>
+  </div>
+</main>
 
 {% endblock content %}
