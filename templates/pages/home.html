@@ -1,54 +1,97 @@
 {% extends 'layouts/base.html' %} {% load static %} {% block content %}
 
-<main>
-  <div id="carousel">
-    <div class="hideLeft">
-      <img
-        src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg"
-      />
+<div id="colorlib-page">
+{% include 'includes/sidebar.html' %}
+
+<div id="colorlib-main">
+  <aside id="colorlib-hero" class="js-fullheight">
+    <div class="flexslider js-fullheight">
+      <ul class="slides">
+        <li style="background-image: url({% static 'img/img_bg_1.jpg' %})">
+          <div class="overlay"></div>
+          <div class="container-fluid">
+            <div class="row">
+              <div
+                class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 js-fullheight slider-text"
+              >
+                <div class="slider-text-inner">
+                  <div class="desc">
+                    <h1>An Inspiring Built Space</h1>
+                    <h2>
+                      100% html5 bootstrap templates Made by
+                      <a href="https://colorlib.com/" target="_blank"
+                        >colorlib.com</a
+                      >
+                    </h2>
+                    <p>
+                      <a class="btn btn-primary btn-learn"
+                        >View Project <i class="icon-arrow-right3"></i
+                      ></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="background-image: url({% static 'img/img_bg_2.jpg' %})">
+          <div class="overlay"></div>
+          <div class="container-fluid">
+            <div class="row">
+              <div
+                class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 js-fullheight slider-text"
+              >
+                <div class="slider-text-inner">
+                  <div class="desc">
+                    <h1>Interior Design Studio</h1>
+                    <h2>
+                      100% html5 bootstrap templates Made by
+                      <a href="#" target="_blank"
+                        >colorlib.com</a
+                      >
+                    </h2>
+                    <p>
+                      <a class="btn btn-primary btn-learn"
+                        >View Project <i class="icon-arrow-right3"></i
+                      ></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="background-image: url({% static 'img/img_bg_3.jpg' %})">
+          <div class="overlay"></div>
+          <div class="container-fluid">
+            <div class="row">
+              <div
+                class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 js-fullheight slider-text"
+              >
+                <div class="slider-text-inner">
+                  <div class="desc">
+                    <h1>The National Gallery</h1>
+                    <h2>
+                      100% html5 bootstrap templates Made by
+                      <a href="https://colorlib.com/" target="_blank"
+                        >colorlib.com</a
+                      >
+                    </h2>
+                    <p>
+                      <a class="btn btn-primary btn-learn"
+                        >View Project <i class="icon-arrow-right3"></i
+                      ></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
+  </aside>
 
-    <div class="prevLeftSecond">
-      <img
-        src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg"
-      />
-    </div>
-
-    <div class="prev">
-      <img
-        src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg"
-      />
-    </div>
-
-    <div class="selected">
-      <img
-        src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg"
-      />
-    </div>
-
-    <div class="next">
-      <img
-        src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg"
-      />
-    </div>
-
-    <div class="nextRightSecond">
-      <img
-        src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg"
-      />
-    </div>
-
-    <div class="hideRight">
-      <img
-        src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg"
-      />
-    </div>
-  </div>
-
-  <div class="buttons">
-    <button id="prev" class="btn btn-outline-primary">Prev</button>
-    <button id="next" class="btn btn-outline-primary">Next</button>
-  </div>
-</main>
-
-{% endblock content %}
+  {% endblock content %}
+</div>
+</div>
