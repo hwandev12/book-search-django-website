@@ -13,8 +13,17 @@ class SliderImagesContent(models.Model):
     def __str__(self):
         return str(self.slider_header_content)
 
-
-
+# create who we are page
+class WhoWeAreModel(models.Model):
+    class Meta:
+        verbose_name = 'Who we are'
+        verbose_name_plural = 'Who we are page'
+        
+    left_image = models.ImageField()
+    right_content_text = models.TextField(max_length=700)
+    right_content_1 = models.CharField(max_length=60)
+    right_content_2 = models.CharField(max_length=60)
+    right_content_3 = models.CharField(max_length=60)
 
 
 # create book card class
