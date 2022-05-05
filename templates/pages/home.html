@@ -6,15 +6,16 @@
     <aside id="colorlib-hero" class="js-fullheight">
       <div class="flexslider js-fullheight">
         <ul class="slides">
-           <li style="background-image: url({% static 'img/read-book1.jpg' %});">
+          {% for slider in sliders %}
+           <li style="background-image: url({{ slider.slider_img.url }});">
              <div class="overlay"></div>
              <div class="container-fluid">
                <div class="row">
                  <div class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 js-fullheight slider-text">
                    <div class="slider-text-inner">
                      <div class="desc">
-                       <h1>Classic books here</h1>
-                       <h2>Classic – a book which people praise and don’t read.<a href="https://colorlib.com/" target="_blank"></a></h2>
+                       <h1>{{ slider.slider_header_content }}</h1>
+                       <h2>{{ slider.slider_text_content }}<a href="https://colorlib.com/" target="_blank"></a></h2>
                       <p><a class="btn btn-primary btn-learn">View Books <i class="icon-arrow-right3"></i></a></p>
                     </div>
                    </div>
@@ -22,38 +23,7 @@
                </div>
              </div>
            </li>
-           <li style="background-image: url({% static 'img/read-book2.jpg' %});">
-             <div class="overlay"></div>
-             <div class="container-fluid">
-               <div class="row">
-                 <div class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-                   <div class="slider-text-inner">
-                     <div class="desc">
-                       <h1>Buy books</h1>
-                      <h2>Fill your house with stacks of books, in all the crannies and all the nooks.<a href="https://colorlib.com/" target="_blank"></a></h2>
-                      <p><a class="btn btn-primary btn-learn">View Collections<i class="icon-arrow-right3"></i></a></p>
-                    </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </li>
-           <li style="background-image: url({% static 'img/read-book3.jpg' %});">
-             <div class="overlay"></div>
-             <div class="container-fluid">
-               <div class="row">
-                 <div class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-                   <div class="slider-text-inner">
-                     <div class="desc">
-                       <h1>Read in our book cafe</h1>
-                      <h2>The books that we enough to leave an heir to our children<a href="https://colorlib.com/" target="_blank"></a></h2>
-                      <p><a class="btn btn-primary btn-learn">View location<i class="icon-arrow-right3"></i></a></p>
-                    </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </li>
+           {% endfor %}
           </ul>
         </div>
     </aside>
