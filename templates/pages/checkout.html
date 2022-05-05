@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container mt-5 px-5">
 
-  <div class="row">
+  <div class="row mx-auto" style="position: relative; width: 80%; left: 100px; top: 100px;">
     <div class="col-md-8">
       <div class="card p-3">
         <h6 class="text-uppercase">Payment details</h6>
@@ -113,10 +113,10 @@
         </div>
       </div>
 
-      <div class="mt-4 mb-4 d-flex justify-content-between">
+      <div class="mt-4 mb-4 d-flex justify-content-between" style="width: 650px; position: relative;">
         <a href="{% url 'book:shop_details' checkout.pk %}">Back</a>
 
-        <button class="btn btn-success px-3">Pay ${{ checkout.shop_cost }}</button>
+        <button class="btn btn-success px-3" style="position: absolute; right: 0;">Pay ${{ checkout.shop_cost }}</button>
       </div>
     </div>
 
