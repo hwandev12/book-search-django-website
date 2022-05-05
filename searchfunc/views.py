@@ -5,12 +5,15 @@ from django.db.models import Q
 
 def home(request):
     sliders = SliderImagesContent.objects.all()
+    whocontents = WhoWeAreModel.objects.all()
     context = {
-        'sliders': sliders
+        'sliders': sliders,
+        'whocontents': whocontents
     }
     return render(request, 'pages/home.html', context)
 
 
+# book page
 def books(request):
     category = request.GET.get('category')
     
