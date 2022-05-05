@@ -110,14 +110,17 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'AKIAZUEOGST65Z6TJV52'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'bookblog'
-AWS_QUERYSTRING_AUTH = False
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = 'AKIAZUEOGST65Z6TJV52'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'bookblog'
+# AWS_QUERYSTRING_AUTH = False
