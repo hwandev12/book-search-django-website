@@ -6,3 +6,5 @@ admin.site.register(BookCardsModel)
 admin.site.register(BookCategoryModel)
 # import slider models
 admin.site.register(SliderImagesContent)
+# import Who we are models
+admin.site.register(WhoWeAreModel)
