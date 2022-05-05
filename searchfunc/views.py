@@ -1,20 +1,12 @@
+from multiprocessing import context
 from django.shortcuts import render
 from .models import *
 from django.db.models import Q
 
 def home(request):
-    
-    if 's' in request.GET:
-        search_key = request.GET['s']
-        full_search = Q(Q(book_name__icontains=search_key) | Q(book_subtitle__icontains=search_key))
-        book_cards = BookCardsModel.objects.filter(full_search)
-    else:
-        book_cards = BookCardsModel.objects.all()
-        
-        
-    
+    sliders = SliderImagesContent.objects.all()
     context = {
-        "book_cards": book_cards,
+        'sliders': sliders
     }
     return render(request, 'pages/home.html', context)
 
