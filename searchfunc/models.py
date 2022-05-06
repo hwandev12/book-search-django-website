@@ -25,6 +25,8 @@ class WhoWeAreModel(models.Model):
     right_content_2 = models.CharField(max_length=60)
     right_content_3 = models.CharField(max_length=60)
 
+    def __str__(self):
+        return self.right_content_2
 
 # create book card class
 class BookCardsModel(models.Model):
