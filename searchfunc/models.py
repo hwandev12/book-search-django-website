@@ -1,4 +1,5 @@
 from django.db import models
+from .validators import validate_file_extension
 
 # first page slider model
 class SliderImagesContent(models.Model):
@@ -27,6 +28,21 @@ class WhoWeAreModel(models.Model):
 
     def __str__(self):
         return self.right_content_2
+
+    
+# what i do page model here
+class EssentialsPageModel(models.Model):
+    class Meta:
+        verbose_name = 'Essential'
+        verbose_name_plural = 'Essentials'
+        
+    essential_header_text = models.CharField(max_length=200)
+    esential_paragraph = models.TextField(max_length=700)
+    essential_page_image = models.FileField( validators=[validate_file_extension])
+
+    
+    def __str__(self):
+        return self.essential_header_text
 
 # create book card class
 class BookCardsModel(models.Model):
