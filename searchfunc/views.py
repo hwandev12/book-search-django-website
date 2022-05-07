@@ -6,9 +6,11 @@ from django.db.models import Q
 def home(request):
     sliders = SliderImagesContent.objects.all()
     whocontents = WhoWeAreModel.objects.all()
+    essentials = EssentialsPageModel.objects.all()
     context = {
         'sliders': sliders,
-        'whocontents': whocontents
+        'whocontents': whocontents,
+        'essentials': essentials
     }
     return render(request, 'pages/home.html', context)
 
