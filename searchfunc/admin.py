@@ -8,3 +8,5 @@ admin.site.register(BookCategoryModel)
 admin.site.register(SliderImagesContent)
 # import Who we are models
 admin.site.register(WhoWeAreModel)
+# import essential page here
+admin.site.register(EssentialsPageModel)
