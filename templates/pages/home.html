@@ -81,48 +81,22 @@
           <div class="col-md-6">
             <div class="row">
               <div class="col-md-12">
+                {% for essential in essentials %}
                 <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-                  <div class="colorlib-icon">
-                    <i class="fa-solid fa-book-atlas"></i>
+                  <div class="colorlib-icon" style="padding-left: 20px; padding-top: 20px; box-sizing: border-box;">
+                    <img src="{{ essential.essential_page_image.url }}" alt="" width="60px">
                   </div>
                   <div class="colorlib-text">
-                    <h3>General Conctructing</h3>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                    <h3>{{ essential.essential_header_text }}</h3>
+                    <p>{{ essential.esential_paragraph }}</p>
                   </div>
                 </div>
-
-                <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-                  <div class="colorlib-icon">
-                    <i class="fa-solid fa-receipt"></i>
-                  </div>
-                  <div class="colorlib-text">
-                    <h3>Pre-Contruction Design</h3>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-
-                <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-                  <div class="colorlib-icon">
-                    <i class="book icon"></i>
-                  </div>
-                  <div class="colorlib-text">
-                    <h3>Building &amp; Modeling</h3>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
-
-                <div class="colorlib-feature animate-box" data-animate-effect="fadeInLeft">
-                  <div class="colorlib-icon">
-                    <i class="bookmark icon"></i>
-                  </div>
-                  <div class="colorlib-text">
-                    <h3>Construction Management</h3>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
           </div>
+
+          <!-- right content here -->
           <div class="col-md-6">
             <div class="row">
               <div class="col-md-6">
