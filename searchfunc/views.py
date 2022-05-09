@@ -8,11 +8,13 @@ def home(request):
     whocontents = WhoWeAreModel.objects.all()
     essentials = EssentialsPageModel.objects.all()
     essential_right_content = EssentialRightContent.objects.all()
+    count_values = CountPageModel.objects.all()
     context = {
         'sliders': sliders,
         'whocontents': whocontents,
         'essentials': essentials,
-        'essential_right_content': essential_right_content
+        'essential_right_content': essential_right_content,
+        'count_values': count_values,
     }
     return render(request, 'pages/home.html', context)
 
