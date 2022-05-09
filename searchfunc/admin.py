@@ -12,3 +12,5 @@ admin.site.register(WhoWeAreModel)
 admin.site.register(EssentialsPageModel)
 # import essential right content
 admin.site.register(EssentialRightContent)
+# import Count page model
+admin.site.register(CountPageModel)
