@@ -10,3 +10,5 @@ admin.site.register(SliderImagesContent)
 admin.site.register(WhoWeAreModel)
 # import essential page here
 admin.site.register(EssentialsPageModel)
+# import essential right content
+admin.site.register(EssentialRightContent)
