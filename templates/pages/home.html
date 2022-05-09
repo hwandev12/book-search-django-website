@@ -98,43 +98,20 @@
 
           <!-- right content here -->
           <div class="col-md-6">
+            {% for essential_right in essential_right_content %}
             <div class="row">
               <div class="col-md-6">
                 <a href="#" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-                  <div class="services-img" style="background-image: url({% static 'img/services-1.jpg' %})"></div>
+                  <div class="services-img" style="background-image: url({{ essential_right.essential_right_image.url }})"></div>
                   <div class="desc">
-                    <h3>Design &amp; Build</h3>
-                  </div>
-                </a>
-                <a href="services.html" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-                  <div class="services-img" style="background-image: url({% static 'img/services-2.jpg' %})"></div>
-                  <div class="desc">
-                    <h3>House Remodeling</h3>
-                  </div>
-                </a>
-                <a href="services.html" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-                  <div class="services-img" style="background-image: url({% static 'img/services-3.jpg' %})"></div>
-                  <div class="desc">
-                    <h3>Construction Management</h3>
+                    <h3>{{ essential_right.essentials_right_content }}</h3>
                   </div>
                 </a>
               </div>
-              <div class="col-md-6 move-bottom">
-                <a href="services.html" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-                  <div class="services-img" style="background-image: url({% static 'img/services-4.jpg' %})"></div>
-                  <div class="desc">
-                    <h3>Painting &amp; Tiling</h3>
-                  </div>
-                </a>
-                <a href="services.html" class="services-wrap animate-box" data-animate-effect="fadeInRight">
-                  <div class="services-img" style="background-image: url({% static 'img/services-5.jpg' %})"></div>
-                  <div class="desc">
-                    <h3>Kitchen Remodeling</h3>
-                  </div>
-                </a>
-              </div>
+              {% endfor %}
             </div>
           </div>
+          <!-- right content end here -->
         </div>
       </div>
     </div>
