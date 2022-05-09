@@ -44,6 +44,18 @@ class EssentialsPageModel(models.Model):
     def __str__(self):
         return self.essential_header_text
 
+# create essentials right content here
+class EssentialRightContent(models.Model):
+    class Meta:
+        verbose_name = 'Essential Right'
+        verbose_name_plural = 'Essential Right'
+        
+    essential_right_image = models.ImageField()
+    essentials_right_content = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.essentials_right_content
+
 # create book card class
 class BookCardsModel(models.Model):
     class Meta:
