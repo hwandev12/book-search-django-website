@@ -56,6 +56,19 @@ class EssentialRightContent(models.Model):
     def __str__(self):
         return self.essentials_right_content
 
+# create count model here
+class CountPageModel(models.Model):
+    class Meta:
+        verbose_name = 'Count Page'
+        verbose_name_plural = 'Count Page'
+        
+    count_img = models.FileField(validators=[validate_file_extension])
+    count_number = models.IntegerField()
+    count_text = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.count_text
+
 # create book card class
 class BookCardsModel(models.Model):
     class Meta:
