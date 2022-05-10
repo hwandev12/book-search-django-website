@@ -124,6 +124,10 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'searchfunc.User'
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # AWS_ACCESS_KEY_ID = 'AKIAZUEOGST65Z6TJV52'
 # AWS_SECRET_ACCESS_KEY = '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'
