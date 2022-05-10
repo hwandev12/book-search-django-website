@@ -10,6 +10,7 @@ def home(request):
     essential_right_content = EssentialRightContent.objects.all()
     count_values = CountPageModel.objects.all()
     books_to_read = BooksToRead.objects.all()
+    contact_me_context = ContactMePartContext.objects.all()
     context = {
         'sliders': sliders,
         'whocontents': whocontents,
@@ -17,6 +18,7 @@ def home(request):
         'essential_right_content': essential_right_content,
         'count_values': count_values,
         'books_to_read': books_to_read,
+        'contact_me_context': contact_me_context,
     }
     return render(request, 'pages/home.html', context)
 
