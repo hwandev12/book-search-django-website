@@ -69,6 +69,19 @@ class CountPageModel(models.Model):
     def __str__(self):
         return self.count_text
 
+# create books to know page
+class BooksToRead(models.Model):
+    class Meta:
+        verbose_name = 'Book to read'
+        verbose_name_plural = 'Books to read'
+        
+    book_name = models.CharField(max_length=100)
+    book_subititle = models.CharField(max_length=70)
+    book_cover_image = models.ImageField()
+    
+    def __str__(self):
+        return self.book_name
+
 # create book card class
 class BookCardsModel(models.Model):
     class Meta:
