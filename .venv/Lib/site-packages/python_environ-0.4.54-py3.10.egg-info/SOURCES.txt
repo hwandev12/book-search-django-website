@@ -1,0 +1,14 @@
+AUTHORS.rst
+CHANGELOG.rst
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+environ/__init__.py
+environ/compat.py
+environ/environ.py
+python_environ.egg-info/PKG-INFO
+python_environ.egg-info/SOURCES.txt
+python_environ.egg-info/dependency_links.txt
+python_environ.egg-info/not-zip-safe
+python_environ.egg-info/top_level.txt
