@@ -9,12 +9,14 @@ def home(request):
     essentials = EssentialsPageModel.objects.all()
     essential_right_content = EssentialRightContent.objects.all()
     count_values = CountPageModel.objects.all()
+    books_to_read = BooksToRead.objects.all()
     context = {
         'sliders': sliders,
         'whocontents': whocontents,
         'essentials': essentials,
         'essential_right_content': essential_right_content,
         'count_values': count_values,
+        'books_to_read': books_to_read,
     }
     return render(request, 'pages/home.html', context)
 
