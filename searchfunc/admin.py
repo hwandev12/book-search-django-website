@@ -16,3 +16,5 @@ admin.site.register(EssentialRightContent)
 admin.site.register(CountPageModel)
 # import books to read page model
 admin.site.register(BooksToRead)
+# import contact context page model
+admin.site.register(ContactMePartContext)
