@@ -102,6 +102,18 @@ class BookCardsModel(models.Model):
     def __str__(self):
         return str(self.book_name)
     
+# create contact me part here
+class ContactMePartContext(models.Model):
+    class Meta:
+        verbose_name = 'Contact context'    
+        verbose_name = 'Contact me Context'
+
+    contact_header = models.CharField(max_length=60)
+    contact_text = models.TextField(max_length=300)
+    
+    def __str__(self):
+        return self.contact_header
+
 # book category model
 class BookCategoryModel(models.Model):
     class Meta:
