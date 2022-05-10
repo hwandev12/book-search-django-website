@@ -14,3 +14,5 @@ admin.site.register(EssentialsPageModel)
 admin.site.register(EssentialRightContent)
 # import Count page model
 admin.site.register(CountPageModel)
+# import books to read page model
+admin.site.register(BooksToRead)
