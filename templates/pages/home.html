@@ -1,5 +1,10 @@
 {% extends 'layouts/base.html' %} {% load static %} {% block content %}
 
+<style>
+  body {
+    overflow-x: hidden;
+  }
+</style>
 
 <div id="colorlib-page">
   <div id="colorlib-main">
@@ -124,7 +129,7 @@
         <div class="row">
           {% for count in count_values %}
           <div class="col-md-3 text-center animate-box">
-            <span class="icon"><img style="border-radius: 50%; background-color: #333; padding: 10px;" src="{{ count.count_img.url }}" alt=""></span>
+            <span class="icon"><img style="border-radius: 50%; background-color: #ddd; padding: 10px;" src="{{ count.count_img.url }}" alt=""></span>
             <span class="colorlib-counter js-counter" data-from="0" data-to="{{ count.count_number }}" data-speed="7000" data-refresh-interval="50"></span>
             <span class="colorlib-counter-label">{{ count.count_text }}</span>
           </div>
