@@ -9,17 +9,20 @@
       <li><a href="#">About</a></li>
       <li><a href="#l">Services</a></li>
       {% if request.user.is_authenticated %}
-        <li><a href="#">Logout</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
       {% else %}
-        <li><a href="#">Login</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
         {% endif %}
       {% if not request.user.is_authenticated %}
-        <li><a href="#">Signup</a></li>
+        <li><a href="{% url 'signup' %}">Signup</a></li>
       {% endif %}
     </ul>
   </nav>
 
   <div class="colorlib-footer">
+    {% if request.user.is_authenticated %}
+      <h2 class="btn btn-primary">{{ request.user.username }}</h2>
+    {% endif %}
     <p><small>&copy;
     Copyright &copy;<script>document.write(new Date().getFullYear());</script> Made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Husan</a> Ahmedov with: <a href="#" target="_blank">Umid Ibrokhimov</a>
     </span> <span>Explore more: <a href="https://github.com/hwandev12/" target="_blank">Github</a></span></small></p>
