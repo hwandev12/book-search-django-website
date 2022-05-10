@@ -1,8 +1,11 @@
 from multiprocessing import context
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from .models import *
+from django.views.generic import *
+from .forms import *
 from django.db.models import Q
 
+# base home
 def home(request):
     sliders = SliderImagesContent.objects.all()
     whocontents = WhoWeAreModel.objects.all()
@@ -21,7 +24,6 @@ def home(request):
         'contact_me_context': contact_me_context,
     }
     return render(request, 'pages/home.html', context)
-
 
 # book page
 def books(request):
@@ -67,3 +69,11 @@ def checkoutBookView(request, pk):
     }
     
     return render(request, 'pages/checkout.html', context)
+
+# create sign up view
+class SignupView(CreateView):
+    template_name = 'registration/signup.html'
+    form_class = RegisterForm
+    
+    def get_success_url(self):
+        return reverse('book:home')
