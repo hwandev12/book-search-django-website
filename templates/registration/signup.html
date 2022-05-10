@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style>
+@media(max-width: 1700px) {
+    .signup {
+        margin-left: 150px;
+    }
+}
+</style>
+<div class="container mt-5 signup">
+  <h2 class="text-center" style="position: relative; z-index: 10">
+    Signup page
+  </h2>
+  <form method="post" class="w-75 mx-auto">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button type="submit" class="btn btn-primary w-100">Signup</button>
+  </form>
+</div>
+{% endblock content %}
