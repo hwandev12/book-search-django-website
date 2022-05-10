@@ -1,5 +1,12 @@
 from django.db import models
 from .validators import validate_file_extension
+from django.contrib.auth.models import AbstractUser
+
+
+# create User here
+class User(AbstractUser):
+    is_organised = models.BooleanField(default=True)
+    is_agent = models.BooleanField(default=False)
 
 # first page slider model
 class SliderImagesContent(models.Model):
