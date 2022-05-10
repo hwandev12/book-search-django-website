@@ -8,8 +8,14 @@
       <li><a href="{% url 'book:books' %}">Books</a></li>
       <li><a href="#">About</a></li>
       <li><a href="#l">Services</a></li>
-      <li><a href="/signup/">Sign up</a></li>
-      <li><a href="#">Login</a></li>
+      {% if request.user.is_authenticated %}
+        <li><a href="#">Logout</a></li>
+      {% else %}
+        <li><a href="#">Login</a></li>
+        {% endif %}
+      {% if not request.user.is_authenticated %}
+        <li><a href="#">Signup</a></li>
+      {% endif %}
     </ul>
   </nav>
 
