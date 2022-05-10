@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import *
 
+# import User
+admin.site.register(User)
 # import book models
 admin.site.register(BookCardsModel)
 admin.site.register(BookCategoryModel)
