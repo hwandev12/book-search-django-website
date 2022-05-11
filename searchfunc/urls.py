@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:pk>/details', bookDetails, name='details'),
     path('<int:pk>/shop-item', shopDetails, name='shop_details'),
     path('<int:pk>/checkout/', checkoutBookView, name='checkout'),
-    path('login-book-lists/', login_required_book_lists, name='books'),
+    path('book-lists/', login_required_book_lists, name='books'),
+    path('profile/', profile, name='users-profile'),
 ]

@@ -26,6 +26,11 @@ def home(request):
     }
     return render(request, 'pages/home.html', context)
 
+# create user profile
+@login_required
+def profile(request):
+    return render(request, 'pages/profile.html')
+
 # book page for only registered users
 @login_required
 def login_required_book_lists(request):

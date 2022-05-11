@@ -5,6 +5,8 @@ from .models import *
 admin.site.register(User)
 # import user profile
 admin.site.register(UserProfile)
+# register user profiel view
+admin.site.register(Profile)
 # register agent model
 admin.site.register(Agent)
 # import book models
