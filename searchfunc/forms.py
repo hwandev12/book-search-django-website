@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile, UserModel
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -87,3 +87,14 @@ class RegisterForm(UserCreationForm):
             'first_name', 'last_name', 'username', 'email', 'password1',
             'password2'
         ]
+# create user online form
+class UserFrom(forms.ModelForm):
+    class Meta:
+        model = UserModel    
+        fields = (
+            "name",
+            "last_name",
+            "email",
+            "age",
+            "agent",
+        )
