@@ -7,5 +7,8 @@ Bu loyihada biz kitoblar jamlanmasini ko'rishimiz mumkin va undagi asosiy tamoyi
 ![image](https://user-images.githubusercontent.com/102412893/167648784-0a8407eb-ed46-4cca-a549-27b04bd94975.png)
 ![image](https://user-images.githubusercontent.com/102412893/167648848-306aeeb1-0caa-4781-9cfe-8f1a01aa97df.png)
 ![image](https://user-images.githubusercontent.com/102412893/167648896-2f813f32-ef9b-47b7-bff4-8f6d3fe7a084.png)
+# You can set and update your profile
+![image](https://user-images.githubusercontent.com/102412893/167828268-269335ca-1a6c-4dbf-a1ef-9a9b0c051d5f.png)
+
 
 
