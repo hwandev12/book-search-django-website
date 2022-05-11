@@ -76,4 +76,4 @@ class SignupView(CreateView):
     form_class = RegisterForm
     
     def get_success_url(self):
-        return reverse('book:home')
+        return reverse('login')
