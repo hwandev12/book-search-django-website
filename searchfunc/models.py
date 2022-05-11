@@ -1,12 +1,20 @@
 from django.db import models
 from .validators import validate_file_extension
 from django.contrib.auth.models import AbstractUser
+from django.db.models.signals import post_save
 
 
 # create User here
 class User(AbstractUser):
     is_organised = models.BooleanField(default=True)
     is_agent = models.BooleanField(default=False)
+
+# create user profile
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return str(self.user.username)
 
 # first page slider model
 class SliderImagesContent(models.Model):
@@ -131,3 +139,12 @@ class BookCategoryModel(models.Model):
     
     def __str__(self):
         return self.name
+    
+# create user post save model here 
+def create_post_save(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+
+post_save.connect(create_post_save, sender=User)
+    
