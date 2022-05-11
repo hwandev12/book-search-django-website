@@ -3,6 +3,7 @@ from django.shortcuts import render, reverse
 from .models import *
 from django.views.generic import *
 from .forms import *
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 # base home
@@ -25,22 +26,11 @@ def home(request):
     }
     return render(request, 'pages/home.html', context)
 
-# book page
-def books(request):
-    category = request.GET.get('category')
-    
-    if category == None:
-        book_cards = BookCardsModel.objects.all()
-    else:
-        book_cards = BookCardsModel.objects.filter(category__name=category)
-        
-    categories = BookCategoryModel.objects.all()
-
-    context = {
-        "book_cards": book_cards,
-        "categories": categories
-    }
-    
+# book page for only registered users
+@login_required
+def login_required_book_lists(request):
+    book_cards = BookCardsModel.objects.all()
+    context = {'book_cards' : book_cards}
     return render(request, 'pages/books.html', context)
 
 # book details
