@@ -3,6 +3,7 @@ from django.shortcuts import render, reverse, redirect
 from .models import *
 from django.views.generic import *
 from .forms import *
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
@@ -105,3 +106,18 @@ class SignupView(CreateView):
             return redirect(to='/')
 
         return render(request, self.template_name, {'form': form})
+    
+
+class CreateUserView(LoginRequiredMixin, CreateView):
+    template_name = 'pages/user_create.html'
+    form_class = UserFrom
+
+    def get_success_url(self):
+        return reverse('book:home')
+
+    def form_valid(self, form):
+        userOnline = form.save(commit=False)
+        userOnline.organiser = self.request.user.profile
+        userOnline.save()
+        return super(CreateUserView, self).form_valid(form)
+
