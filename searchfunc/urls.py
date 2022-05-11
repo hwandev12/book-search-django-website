@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/checkout/', checkoutBookView, name='checkout'),
     path('book-lists/', login_required_book_lists, name='books'),
     path('profile/', profile, name='users-profile'),
+    path("create/", CreateUserView.as_view(), name='create_user'),
 ]
