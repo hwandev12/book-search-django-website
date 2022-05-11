@@ -2,7 +2,7 @@ from pathlib import Path
 import environ
 
 env = environ.Env(
-    DEBUG=(bool, True)
+    DEBUG=(bool, False)
 )
 
 environ.Env.read_env()
@@ -20,9 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '!c$^-qh^@l#58_(kz4s^gu_4*8d6d9m3ksf564agta5q2cpw)o'
 
+DEBUG = True
+
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['book-webite-read.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -40,7 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -75,15 +77,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
         
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbqajhj3bi0i7i',
-        'USER': 'jeoltiyzuntqmz',
-        'PASSWORD': '3534fa57e2b2f762d66ea54c129b218a09bb80e41c562421f177e3b1c42b5c62',
-        'HOST': 'ec2-107-22-238-112.compute-1.amazonaws.com',
-        'PORT': '5432'
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'dbqajhj3bi0i7i',
+        # 'USER': 'jeoltiyzuntqmz',
+        # 'PASSWORD': '3534fa57e2b2f762d66ea54c129b218a09bb80e41c562421f177e3b1c42b5c62',
+        # 'HOST': 'ec2-107-22-238-112.compute-1.amazonaws.com',
+        # 'PORT': '5432'
     }
 }
 
@@ -142,7 +144,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'searchfunc.User'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
