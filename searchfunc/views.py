@@ -6,6 +6,7 @@ from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
+
 # base home
 def home(request):
     sliders = SliderImagesContent.objects.all()
@@ -26,13 +27,16 @@ def home(request):
     }
     return render(request, 'pages/home.html', context)
 
+
 # create user profile
 @login_required
 def profile(request):
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
-        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
-        
+        profile_form = UpdateProfileForm(request.POST,
+                                         request.FILES,
+                                         instance=request.user.profile)
+
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -42,46 +46,62 @@ def profile(request):
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
-    return render(request, 'pages/profile.html', {'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'pages/profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })
+
 
 # book page for only registered users
 @login_required
 def login_required_book_lists(request):
     book_cards = BookCardsModel.objects.all()
-    context = {'book_cards' : book_cards}
+    context = {'book_cards': book_cards}
     return render(request, 'pages/books.html', context)
+
 
 # book details
 def bookDetails(request, pk):
     book_detail = BookCardsModel.objects.get(id=pk)
-    context = {
-        'book_detail': book_detail
-    }
-    
+    context = {'book_detail': book_detail}
+
     return render(request, 'details/book_details.html', context)
+
 
 # shop details
 def shopDetails(request, pk):
     shop_detail = BookCardsModel.objects.get(id=pk)
-    context = {
-        'shop_detail': shop_detail
-    }
+    context = {'shop_detail': shop_detail}
     return render(request, 'details/shop_details.html', context)
+
 
 # card checkout to buy the book
 def checkoutBookView(request, pk):
     checkout = BookCardsModel.objects.get(id=pk)
 
-    context = {
-        'checkout': checkout
-    }
-    
+    context = {'checkout': checkout}
+
     return render(request, 'pages/checkout.html', context)
+
 
 # create sign up view
 class SignupView(CreateView):
     template_name = 'registration/signup.html'
+    initial = {'key': 'value'}
     form_class = RegisterForm
-    
-    def get_success_url(self):
-        return reverse('login')
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}')
+
+            return redirect(to='/')
+
+        return render(request, self.template_name, {'form': form})
