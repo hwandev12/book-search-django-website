@@ -10,6 +10,7 @@
       <li><a href="#l">Services</a></li>
       {% if request.user.is_authenticated %}
         <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="{% url 'book:users-profile' %}">Profile</a></li>
       {% else %}
         <li><a href="{% url 'login' %}">Login</a></li>
         {% endif %}
