@@ -1,5 +1,5 @@
-from multiprocessing import context
-from django.shortcuts import render, reverse
+from django.contrib import messages
+from django.shortcuts import render, reverse, redirect
 from .models import *
 from django.views.generic import *
 from .forms import *
@@ -29,7 +29,20 @@ def home(request):
 # create user profile
 @login_required
 def profile(request):
-    return render(request, 'pages/profile.html')
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile is updated successfully')
+            return redirect(to='users-profile')
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+
+    return render(request, 'pages/profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
 # book page for only registered users
 @login_required
