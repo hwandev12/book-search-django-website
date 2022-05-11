@@ -11,14 +11,13 @@ class User(AbstractUser):
     is_agent = models.BooleanField(default=False)
 
 
-
 # Extending User Model Using a One-To-One Link
 class Profile(models.Model):
     user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE)
 
     avatar = models.ImageField(default='Alisher-Navoi.png')
     bio = models.TextField()
-    
+
     def save(self, *args, **kwargs):
         super().save()
 
@@ -177,6 +176,23 @@ class BookCategoryModel(models.Model):
         return self.name
 
 
+# create user here model
+class UserModel(models.Model):
+
+    class Meta:
+        verbose_name = 'Users Online'
+        verbose_name_plural = 'Users Model'
+
+    name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=40)
+    age = models.IntegerField(default=0)
+    email = models.EmailField()
+    organiser = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    agent = models.ForeignKey("Agent", null=True, blank=True, on_delete=models.SET_NULL)
+
+    def __str__(self):
+        return self.name
+
 # create agent model
 class Agent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -184,4 +200,3 @@ class Agent(models.Model):
 
     def __str__(self):
         return str(self.user)
-
