@@ -3,6 +3,8 @@ from .models import *
 
 # import User
 admin.site.register(User)
+# import user profile
+admin.site.register(UserProfile)
 # import book models
 admin.site.register(BookCardsModel)
 admin.site.register(BookCategoryModel)
