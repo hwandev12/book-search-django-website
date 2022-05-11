@@ -1,8 +1,8 @@
+from email.policy import default
 from PIL import Image
 from django.db import models
 from .validators import validate_file_extension
 from django.contrib.auth.models import AbstractUser
-from django.db.models.signals import post_save
 
 
 # create User here
@@ -11,19 +11,12 @@ class User(AbstractUser):
     is_agent = models.BooleanField(default=False)
 
 
-# create user profile
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return str(self.user.username)
-
 
 # Extending User Model Using a One-To-One Link
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE)
 
-    avatar = models.ImageField()
+    avatar = models.ImageField(default='Alisher-Navoi.png')
     bio = models.TextField()
     
     def save(self, *args, **kwargs):
@@ -187,16 +180,8 @@ class BookCategoryModel(models.Model):
 # create agent model
 class Agent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    organiser = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    organiser = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.user)
 
-
-# create user post save model here
-def create_post_save(sender, instance, created, **kwargs):
-    if created:
-        UserProfile.objects.create(user=instance)
-
-
-post_save.connect(create_post_save, sender=User)
