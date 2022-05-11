@@ -140,6 +140,14 @@ class BookCategoryModel(models.Model):
     def __str__(self):
         return self.name
     
+# create agent model
+class Agent(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)    
+    organiser = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return str(self.user)
+    
 # create user post save model here 
 def create_post_save(sender, instance, created, **kwargs):
     if created:
