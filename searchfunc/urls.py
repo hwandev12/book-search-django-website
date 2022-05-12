@@ -11,5 +11,6 @@ urlpatterns = [
     path('book-lists/', login_required_book_lists, name='books'),
     path('profile/', profile, name='users-profile'),
     path("<int:pk>/update/", userProfileUpdateView, name='update_user'),
+    path('user-lists/', UserListView.as_view(), name='user_lists'),
     path("create/", CreateUserView.as_view(), name='create_user'),
 ]
