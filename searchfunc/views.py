@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, reverse, redirect
 from .models import *
+from . import models
 from django.views.generic import *
 from .forms import *
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -143,3 +144,17 @@ class CreateUserView(LoginRequiredMixin, CreateView):
         userOnline.organiser = self.request.user.profile
         userOnline.save()
         return super(CreateUserView, self).form_valid(form)
+
+# create user list view
+class UserListView(LoginRequiredMixin, ListView):
+    template_name = 'pages/users.html'
+    context_object_name = 'users'
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_organised:
+            queryset = models.UserModel.objects.filter(organiser=user.profile)
+        else:
+            queryset = models.UserModel.objects.filter(organiser=user.agent.organiser)
+            queryset = queryset.filter(agent__user=self.request.user)
+        return queryset
