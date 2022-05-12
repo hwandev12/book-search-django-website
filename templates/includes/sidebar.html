@@ -17,7 +17,7 @@
       {% if not request.user.is_authenticated %}
         <li><a href="{% url 'signup' %}">Signup</a></li>
       {% endif %}
-      {% if request.user.is_organised %}
+      {% if request.user.is_organiser %}
       <li><a href="{% url 'book:create_user' %}">Create User</a></li>
       {% endif %}
     </ul>
