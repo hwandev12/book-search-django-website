@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 
 # create User here
 class User(AbstractUser):
-    is_organised = models.BooleanField(default=True)
+    is_organised = models.BooleanField(default=False)
     is_agent = models.BooleanField(default=False)
 
 
