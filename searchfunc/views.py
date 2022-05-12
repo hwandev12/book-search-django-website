@@ -106,7 +106,30 @@ class SignupView(CreateView):
             return redirect(to='/')
 
         return render(request, self.template_name, {'form': form})
-    
+
+
+# create profile update view
+def userProfileUpdateView(request, pk):
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST,
+                                         request.FILES,
+                                         instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile is updated successfully')
+            return redirect(to='/')
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+
+    return render(request, 'pages/update.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })
+
 
 class CreateUserView(LoginRequiredMixin, CreateView):
     template_name = 'pages/user_create.html'
@@ -120,4 +143,3 @@ class CreateUserView(LoginRequiredMixin, CreateView):
         userOnline.organiser = self.request.user.profile
         userOnline.save()
         return super(CreateUserView, self).form_valid(form)
-

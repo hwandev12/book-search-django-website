@@ -7,4 +7,4 @@ class SearchfuncConfig(AppConfig):
     
     # add this
     def ready(self):
-        import searchfunc.signals  # noqa
+        import searchfunc.signals

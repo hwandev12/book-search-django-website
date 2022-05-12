@@ -4,9 +4,13 @@
   body {
     overflow-x: hidden;
   }
+  .books {
+    font-size: 16px;
+  }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<section class="text-gray-600 body-font mx-auto" style="width: 80%; position: relative; left: 170px; top: 20px;">
+<section class="text-gray-600 body-font mx-auto books" style="width: 80%; position: relative; left: 170px; top: 20px;">
   <div class="container px-5 py-5 mx-auto">
     <!-- dropdown button -->
     <!-- <div class="btn dropend">
@@ -56,17 +60,18 @@
           class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
         >
           <img
-            class="lg:h-48 md:h-36 w-full object-cover object-center"
+            class="h-50 md:h-36 w-full object-cover object-center"
             src="{{ card.book_cover.url }}"
             alt="blog"
           />
           <div class="p-6">
             <h2
+            style="font-size: 14px;"
               class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
             >
               {{ card.book_subtitle }}
             </h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3" style="font-size: 17px;">
               {{ card.book_name }}
             </h1>
             <p class="leading-relaxed mb-3">{{ card.book_description }}.</p>
