@@ -20,8 +20,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '!c$^-qh^@l#58_(kz4s^gu_4*8d6d9m3ksf564agta5q2cpw)o'
 
-DEBUG = True
-
 # SECURITY WARNING: don't run with debug turned on in production!
 
 ALLOWED_HOSTS = ['book-webite-read.herokuapp.com','127.0.0.1']
@@ -77,15 +75,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3'
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3'
         
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'dbqajhj3bi0i7i',
-        # 'USER': 'jeoltiyzuntqmz',
-        # 'PASSWORD': '3534fa57e2b2f762d66ea54c129b218a09bb80e41c562421f177e3b1c42b5c62',
-        # 'HOST': 'ec2-107-22-238-112.compute-1.amazonaws.com',
-        # 'PORT': '5432'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbqajhj3bi0i7i',
+        'USER': 'jeoltiyzuntqmz',
+        'PASSWORD': '3534fa57e2b2f762d66ea54c129b218a09bb80e41c562421f177e3b1c42b5c62',
+        'HOST': 'ec2-107-22-238-112.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -132,10 +130,6 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = 'staticfiles'
 
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -150,8 +144,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# AWS_ACCESS_KEY_ID = 'AKIAZUEOGST65Z6TJV52'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'bookblog'
-# AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'AKIA6DK2Y5GRJ5UZ6ZYK'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'booksitepictures'
+AWS_QUERYSTRING_AUTH = False
