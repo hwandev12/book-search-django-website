@@ -1,4 +1,4 @@
-from django_resized import ResizedImageField
+from PIL import Image
 from django.db import models
 from .validators import validate_file_extension
 from django.contrib.auth.models import AbstractUser
@@ -14,10 +14,18 @@ class User(AbstractUser):
 class Profile(models.Model):
     user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE)
 
-    avatar = ResizedImageField(size=[100, 100], upload_to='images', default='static/img/read-book2.jpg')
-
+    avatar = models.ImageField(default='shaytanat.jpg')
     bio = models.TextField()
 
+    def save(self, *args, **kwargs):
+        super().save()
+
+        img = Image.open(self.avatar.path)
+
+        if img.height > 100 or img.width > 100:
+            new_img = (100, 100)
+            img.thumbnail(new_img)
+            img.save(self.avatar.path)
 
     def __str__(self):
         return self.user.username

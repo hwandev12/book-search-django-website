@@ -22,7 +22,7 @@ SECRET_KEY = '!c$^-qh^@l#58_(kz4s^gu_4*8d6d9m3ksf564agta5q2cpw)o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = ['book-webite-read.herokuapp.com','127.0.0.1']
 
@@ -78,16 +78,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
         
-        # Postgresql database
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbqajhj3bi0i7i',
-        'USER': 'jeoltiyzuntqmz',
-        'PASSWORD': '3534fa57e2b2f762d66ea54c129b218a09bb80e41c562421f177e3b1c42b5c62',
-        'HOST': 'ec2-107-22-238-112.compute-1.amazonaws.com',
-        'PORT': '5432'
+        # Postgresq 
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'dbqajhj3bi0i7i',
+        # 'USER': 'jeoltiyzuntqmz',
+        # 'PASSWORD': '3534fa57e2b2f762d66ea54c129b218a09bb80e41c562421f177e3b1c42b5c62',
+        # 'HOST': 'ec2-107-22-238-112.compute-1.amazonaws.com',
+        # 'PORT': '5432'
     }
 }
 
@@ -132,6 +132,10 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
+
 STATIC_ROOT = 'staticfiles'
 
 # Default primary key field type
@@ -148,8 +152,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'AKIA6DK2Y5GRJ5UZ6ZYK'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'booksitepictures'
-AWS_QUERYSTRING_AUTH = False
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = 'AKIA6DK2Y5GRJ5UZ6ZYK'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'booksitepictures'
+# AWS_QUERYSTRING_AUTH = False
