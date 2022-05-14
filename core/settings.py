@@ -22,11 +22,7 @@ SECRET_KEY = '!c$^-qh^@l#58_(kz4s^gu_4*8d6d9m3ksf564agta5q2cpw)o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ['*',]
-=======
-ALLOWED_HOSTS = ['https://book-webite-read.herokuapp.com','127.0.0.1']
->>>>>>> dec80269b8bb5fe60918d0d70210d59166a74615
+ALLOWED_HOSTS = ['book-webite-read.herokuapp.com','127.0.0.1']
 
 
 # Application definition
