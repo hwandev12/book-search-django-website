@@ -6,6 +6,7 @@ from django.contrib.auth.views import (
     LoginView,
     LogoutView,
     PasswordResetView,
+    PasswordResetDoneView
 )
 from searchfunc.views import SignupView
 
@@ -15,5 +16,6 @@ urlpatterns = [
     path('signup/', SignupView.as_view(), name='signup'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('password-reset-view/', PasswordResetView.as_view(), name='password_reset_view')
+    path('password-reset-view/', PasswordResetView.as_view(), name='password_reset_view'),
+    path('password-reset-done/', PasswordResetDoneView.as_view(), name='password_reset_done')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
