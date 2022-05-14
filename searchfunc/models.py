@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from email.policy import default
 from PIL import Image
 from django.db import models
@@ -39,7 +40,7 @@ class SliderImagesContent(models.Model):
         verbose_name = 'Slider Content'
         verbose_name = 'Slider Content'
 
-    slider_img = models.ImageField()
+    slider_img = models.ImageField(upload_to="images/")
     slider_header_content = models.CharField(max_length=100)
     slider_text_content = models.TextField(max_length=400)
 
