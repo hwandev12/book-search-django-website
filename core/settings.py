@@ -22,6 +22,8 @@ SECRET_KEY = '!c$^-qh^@l#58_(kz4s^gu_4*8d6d9m3ksf564agta5q2cpw)o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+# DEBUG = True
+
 ALLOWED_HOSTS = ['book-webite-read.herokuapp.com','127.0.0.1']
 
 
@@ -75,6 +77,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
+        
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        
+        # Postgresql database
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dbqajhj3bi0i7i',
         'USER': 'jeoltiyzuntqmz',

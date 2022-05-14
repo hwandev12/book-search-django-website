@@ -1,5 +1,3 @@
-from distutils.command.upload import upload
-from email.policy import default
 from PIL import Image
 from django.db import models
 from .validators import validate_file_extension
@@ -16,7 +14,7 @@ class User(AbstractUser):
 class Profile(models.Model):
     user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE)
 
-    avatar = models.ImageField(default='Alisher-Navoi.png')
+    avatar = models.ImageField(default='static/img/read-book2.jpg')
     bio = models.TextField()
 
     def save(self, *args, **kwargs):
