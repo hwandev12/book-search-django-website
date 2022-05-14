@@ -14,7 +14,7 @@ class User(AbstractUser):
 class Profile(models.Model):
     user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE)
 
-    avatar = ResizedImageField(size=[100, 100], upload_to='images', blank=True)
+    avatar = ResizedImageField(size=[100, 100], upload_to='images', default='static/img/read-book2.jpg')
 
     bio = models.TextField()
 
