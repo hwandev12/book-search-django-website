@@ -1,4 +1,4 @@
-from django.core.files.storage import default_storage as storage
+from django_resized import ResizedImageField
 from django.db import models
 from .validators import validate_file_extension
 from django.contrib.auth.models import AbstractUser
@@ -14,11 +14,10 @@ class User(AbstractUser):
 class Profile(models.Model):
     user = models.OneToOneField(User, blank=True, on_delete=models.CASCADE)
 
-    avatar = models.ImageField(default='static/img/read-book2.jpg')
+    avatar = ResizedImageField(size=[100, 100], upload_to='images', blank=True)
+
     bio = models.TextField()
 
-    def save(self, *args, **kwargs):
-        super().save()
 
     def __str__(self):
         return self.user.username
