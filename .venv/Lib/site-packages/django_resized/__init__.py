@@ -1,1 +1,0 @@
-from django_resized.forms import ResizedImageField  # noqa
