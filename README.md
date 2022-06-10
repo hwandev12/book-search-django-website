@@ -1,5 +1,5 @@
 # book-search-django-website
-Bu loyihada biz kitoblar jamlanmasini ko'rishimiz mumkin va undagi asosiy tamoyil bu izlash funksiyasi hisoblanadi
+Bu loyihada biz kitoblar jamlanmasini ko'rishimiz mumkin
 ![image](https://user-images.githubusercontent.com/102412893/167648441-47ea935f-28e0-48a7-be36-7440f914055b.png)
 ![image](https://user-images.githubusercontent.com/102412893/167648512-ab4f470e-6eca-4ada-89e1-03be1ab4671d.png)
 ![image](https://user-images.githubusercontent.com/102412893/167648592-aef70b3a-6f22-4c18-82df-89f42d7d3144.png)
